@@ -1,0 +1,46 @@
+<div class="main page-offset">
+    <div class="row clearfix no-margin">
+        <div class="search-container col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-2">
+            <h3>Search Listings</h3>
+
+            <form class="form-horizontal">
+                <div class="form-group form-group-lg">
+                    <div class="col-xs-10 search-form-input">
+                        <input class="form-control search-box" type="text" id="search" ng-model="searchTerm"
+                               ng-change="checkSearchTerm()" placeholder="Enter a zipcode, neighbourhood or city" ng-enter="search()">
+                    </div>
+                    <a class="btn btn-custom col-xs-2 search-button" ng-click="search()"><span
+                            class="glyphicon glyphicon-search"
+                            aria-hidden="true"></span></a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-xs-11 col-md-9 col-centered min-height">
+        <ul ng-if="listings" class="property-list">
+            <li class="property clearfix" ng-repeat="listing in listings">
+                <a ng-click="showDetails(listing)" class="indicator-wrap"><span class="glyphicon glyphicon-chevron-right indicator"
+                                         aria-hidden="true"></span></a>
+                <div class="property-image col-xs-12 col-sm-4">
+                    <img src="img/living.jpg" alt="Living" class="search-image"/>
+                </div>
+                <div class="property-details col-xs-12 col-sm-8">
+                    <div class="description col-xs-11 col-sm-11">
+                        <h4 ng-model="fullAddress">{{ listing.place_details.formatted_address }}</h4>
+
+                        <p ng-model="description">{{ listing.description }}</p>
+                    </div>
+                    <ul class="list-inline col-xs-12 details">
+                        <li ng-model="bed">Bed {{ listing.bed }}</li>
+                        <li ng-model="bath">Bath {{ listing.bath }}</li>
+                    </ul>
+                    <ul class="list-inline col-xs-12 details">
+                        <li ng-model="pets">Pets {{ listing.pets }}</li>
+                        <li ng-model="heat">Heat {{ listing.heat }}</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

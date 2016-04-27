@@ -1,0 +1,122 @@
+<div class="main page-offset">
+    <a href="#/search" class="back-button"><i class="fa fa-arrow-circle-o-left back"></i></a>
+
+    <div ng-if="pinerror" class="alert alert-danger alert-dismissible alert-custom col-xs-8 col-centered" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <span> You have to log in to pin this listing </span>
+    </div>
+    <div class="col-xs-11 col-sm-10 col-md-9 col-centered result-container">
+        <div class="property-address"><h2>{{ selectedListing.place_details.formatted_address }}</h2></div>
+        <div class="detail-container">
+            <span class="glyphicon glyphicon-pushpin pin" title="log in to pin" ng-click="pinListing(selectedListing)" aria-hidden="true"></span>
+
+            <div class="gallery">
+                <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+                    <!-- The container for the modal slides -->
+                    <div class="slides"></div>
+                    <!-- Controls for the borderless lightbox -->
+                    <h3 class="title"></h3>
+                    <a class="prev">‹</a>
+                    <a class="next">›</a>
+                    <a class="close">×</a>
+                    <a class="play-pause"></a>
+                    <ol class="indicator"></ol>
+                    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+                    <div class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title"></h4>
+                                </div>
+                                <div class="modal-body next"></div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default pull-left prev">
+                                        <i class="glyphicon glyphicon-chevron-left"></i>
+                                        Previous
+                                    </button>
+                                    <button type="button" class="btn btn-primary next">
+                                        Next
+                                        <i class="glyphicon glyphicon-chevron-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="links" class="images">
+                    <a href="img/living.jpg" data-gallery>
+                        <img src="img/living.jpg">
+                    </a>
+                    <a href="img/kitchen.jpg" data-gallery>
+                        <img src="img/kitchen.jpg">
+                    </a>
+                    <a href="img/table.jpg" data-gallery>
+                        <img src="img/table.jpg">
+                    </a>
+                </div>
+            </div>
+            <div class="property-details">
+                <div class="property-description">
+                    {{ selectedListing.description }}
+                </div>
+                <div class="property-info clearfix">
+                    <div class="heading"><h4>Property Details</h4></div>
+
+                    <div class="price col-xs-12 col-md-3">
+                        <h2>Price</h2>
+
+                        <h3>{{ selectedListing.rent | currency }}</h3>
+                    </div>
+                    <div class="features col-xs-12 col-md-9">
+                        <div class="property-features col-xs-10 col-sm-6">
+                            <table class="table table-condensed no-border">
+                                <tr class="t-row">
+                                    <td class="col-xs-4"><h5>Type</h5></td>
+                                    <td><p>{{ selectedListing.propertyType }}</p></td>
+                                </tr>
+                                <tr class="t-row">
+                                    <td class="col-xs-4"><h5>Bed</h5></td>
+                                    <td><p>{{ selectedListing.bed }}</p></td>
+                                </tr>
+                                <tr class="t-row">
+                                    <td class="col-xs-4"><h5>Bath</h5></td>
+                                    <td><p>{{ selectedListing.bath }}</p></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="amenities  col-xs-10 col-sm-6">
+                            <table class="table table-condensed no-border">
+                                <tr class="t-row">
+                                    <td class="col-xs-4"><h5>Heat</h5></td>
+                                    <td><i ng-class="{'fa fa-fire icon-type fire': selectedListing.heat == true, 'fa fa-fire icon-type': selectedListing.heat == false}"></i></td>
+                                </tr>
+                                <tr class="t-row">
+                                    <td class="col-xs-4"><h5>Parking</h5></td>
+                                    <td><i ng-class="{'fa fa-car icon-type car': selectedListing.parking == true, 'fa fa-car icon-type': selectedListing.parking == false}"></i></td>
+                                </tr>
+                                <tr class="t-row">
+                                    <td class="col-xs-4"><h5>Pets</h5></td>
+                                    <td><i ng-class="{'fa fa-paw icon-type paw': selectedListing.pets == true, 'fa fa-paw icon-type': selectedListing.pets == false}"></i></td>
+                                </tr>
+                                <tr class="t-row">
+                                    <td class="col-xs-4"><h5>Gym</h5></td>
+                                    <td><i ng-class="{'fa fa-heartbeat icon-type heartbeat': selectedListing.gym == true, 'fa fa-heartbeat icon-type': selectedListing.gym == false}"></i></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="map_canvas">
+                <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+                    <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+                    </ui-gmap-marker>
+                </ui-gmap-google-map>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

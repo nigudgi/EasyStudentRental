@@ -1,0 +1,182 @@
+<div class="main page-offset">
+    <div class="form-panel col-xs-11 col-sm-8 col-centered">
+        <div class="alert alert-danger" ng-if="!user" role="alert">You have to be logged in to add a listing. <a href="#/login">Login</a> to continue</div>
+        <h3>Add Listing</h3>
+
+        <!--{{user}}-->
+        <div class="form-holder">
+            <form name="listingForm" novalidate>
+                <div class="listing-details clearfix">
+                    <div class="form-group col-xs-11 col-sm-3 type">
+                        <label for="property-type">Type *</label>
+                        <select name="propertyType" id="property-type" ng-model="propertyType" class="form-control" required>
+                            <option value="APT">Apartment</option>
+                            <option value="CON">Condo</option>
+                            <option value="TOW">Town House</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-xs-11 col-sm-3">
+                        <label for="bed">Bed *</label>
+                        <select name="bed" id="bed" ng-model="bed" class="form-control" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-xs-11 col-sm-4">
+                        <label for="bath">Bath *</label>
+                        <select name="" id="bath" ng-model="bath" class="form-control" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-xs-11 no-padding">
+                        <label for="autocomplete">Address *</label>
+                        <input id="autocomplete" g-places-autocomplete class="form-control" ng-model="place"
+                               ng-change="autocompleteResponse()" placeholder="Enter your address" type="text"/>
+
+                        <div class="form-group no-padding">
+                            <label for="addr1">Address 1 </label>
+                            <input type="text" id="addr1" class="form-control"
+                                   value="{{ placedetails.displayAddress }}"
+                                   placeholder="360 Huntington Ave (Populated automatically)" disabled/>
+                        </div>
+                        <div class="form-group no-padding">
+                            <label for="addr2">Address 2</label>
+                            <input type="text" id="addr2" class="form-control" placeholder="Contd" disabled/>
+                        </div>
+                        <div class="form-group col-xs-5 col-sm-3 city">
+                            <label for="city">City</label>
+                            <input type="text" id="city" class="form-control" value="{{ placedetails.locality }}"
+                                   placeholder="City" disabled/>
+                        </div>
+                        <div class="form-group col-xs-5 col-sm-3">
+                            <label for="state">State</label>
+                            <input type="text" id="state" class="form-control"
+                                   value="{{ placedetails.administrative_area_level_1 }}" placeholder="State" disabled/>
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-4 zip">
+                            <label for="zip">Zip Code</label>
+                            <input type="text" id="zip" class="form-control" value="{{ placedetails.postal_code }}"
+                                   placeholder="XXXXX" disabled/>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-11 no-padding">
+                        <label for="rent">Rent/mo *</label>
+                        <input type="text" id="rent" class="form-control" ng-model="rent" placeholder="$XXXX"/>
+                    </div>
+                </div>
+
+                <div class="listing-props">
+                    <div class="image-upload">
+                        <label for="upload">Upload Images</label>
+                        <a class="btn btn-custom" role="button" data-toggle="modal" data-target="#upload-modal"
+                           id="upload">Upload</a>
+
+                        <div class="modal fade" id="upload-modal" tabindex="-1" role="dialog"
+                             aria-labelledby="upload-images">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Upload Images</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="choose">Select images to upload</label>
+                                            <a class="btn btn-info" role="button" id="choose">Choose images</a>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                        </button>
+                                        <button type="button" class="btn btn-primary">Upload</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="misc-details clearfix">
+                        <div class="form-wrap col-xs-12 no-padding">
+                            <div class="form-group col-sm-6 no-padding">
+                                <label for="heat-included">Heat Included? *</label>
+
+                                <div class="radio" id="heat-included">
+                                    <label>
+                                        <input type="radio" name="heat" id="heat" ng-model="heat" ng-value="true">Yes
+                                    </label>
+
+                                    <label class="option-no">
+                                        <input type="radio" name="heat" id="no-heat" ng-model="heat" ng-value="false">No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6 no-padding">
+                                <label for="heat-included">Pets? *</label>
+
+                                <div class="radio" id="pets-allowed">
+                                    <label>
+                                        <input type="radio" name="pets" id="pets" ng-model="pets" ng-value="true">Yes
+                                    </label>
+
+                                    <label class="option-no">
+                                        <input type="radio" name="pets" id="no-pets" ng-model="pets" ng-value="false">No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-wrap col-xs-12 no-padding">
+                            <div class="form-group col-sm-6 no-padding">
+                                <label for="heat-included">Gym? *</label>
+
+                                <div class="radio" id="gym-available">
+                                    <label>
+                                        <input type="radio" name="gym" id="gym" ng-model="gym" ng-value="true">
+                                        Yes
+                                    </label>
+
+                                    <label class="option-no">
+                                        <input type="radio" name="gym" id="no-gym" ng-model="gym" ng-value="false">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6 no-padding">
+                                <label for="heat-included">Parking? *</label>
+
+                                <div class="radio" id="parking-available">
+                                    <label>
+                                        <input type="radio" name="parking" id="parking" ng-model="parking" ng-value="false">
+                                        Yes
+                                    </label>
+
+                                    <label class="option-no">
+                                        <input type="radio" name="parking" id="no-parking" ng-model="parking"
+                                               ng-value="false">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-11 no-padding">
+                            <label for="desc">Description</label>
+                            <textarea name="description" id="desc" cols="12" rows="3" class="form-control"
+                                      ng-model="description"
+                                      placeholder="(Optional) Anything you want to add about your property"></textarea>
+                        </div>
+
+                        <a class="btn btn-custom" ng-click="addListing()" role="button" ng-disabled="!user || !listingForm.$valid" id="add-listing">Add Listing</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
