@@ -7,7 +7,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
-var connectionString = 'mongodb://127.0.0.1:27017/cs5610';
+var connectionString = 'mongodb://127.0.0.1:27017/easyRental';
 
 //app.use(express.logger());
 app.use(bodyParser.json());

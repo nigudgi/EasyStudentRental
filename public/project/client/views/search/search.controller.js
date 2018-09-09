@@ -14,25 +14,56 @@
         $scope.listing = null;
         $scope.searchTerm = null;
         $scope.listings = null;
+        $scope.checkSearch==false;
+        $scope.field="";
 
 
+
+      
 
 
         function search() {
-            if ($scope.searchTerm) {
-             debugger;
+            if ($scope.searchTerm!= null && $scope.searchTerm != undefined) {
+             
                 ListingService.SearchByLocality($scope.searchTerm)
                     .then(function (listings) {
                         
-                        if (listings) {
+                        if (listings.length !=0) {
 
                             $scope.listings = listings;
-                        } else {
+                        } 
+                        else {
+                            $scope.field="Enter a correct search field"
                             console.log("suggest a different method of search")
                         }
                     });
             }
+
+        else{
+                  $scope.field= "* This field is required!"
+            return;
         }
+
+
+        }
+
+
+
+
+
+      $scope.checkSearch = function(){
+         if($scope.MyText == null || $scope.MyText == undefined){
+         
+         return true;
+                  }
+
+      else{
+ 
+        return false;
+      }
+
+      }
+
 
         function checkSearchTerm() {
             if ($scope.searchTerm == "" || $scope.searchTerm == null) {

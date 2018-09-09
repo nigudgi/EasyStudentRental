@@ -15,7 +15,7 @@ module.exports = function (mongoose) {
         parking: Boolean,
         description: String,
         images: [String]
-    }, {collection: 'cs5610.project.listing'});
+    }, {collection: 'easyRental.project.listing'});
 
     return ListingSchema;
 };

@@ -67,10 +67,19 @@
             listing['parking'] = $scope.parking;
             listing['description'] = $scope.description;
 
+                  if($scope.propertyType === undefined| $scope.user._id=== undefined | $scope.bed === undefined| $scope.bath === undefined| $scope.placedetails === undefined| $scope.rent === undefined| $scope.heat === undefined|$scope.pets=== undefined | $scope.gym === undefined |$scope.parking === undefined| $scope.description=== undefined)  {
+                        debugger;
+                         $location.url("/addListing");
+                        return;
+                        } 
+ 
             ListingService.Create(listing, $scope.user._id)
                 .then(function (listing) {
-                    debugger;
+                  debugger;
+                 
+               
                     if (listing) {
+                        debugger;
                         $location.url('myListing/' + $scope.user._id);
                     } else {
                         $scope.createError = true;

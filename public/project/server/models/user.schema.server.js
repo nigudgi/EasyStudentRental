@@ -8,7 +8,7 @@ module.exports = function (mongoose) {
         password: String,
         email: String,
         pinned: [String]
-    }, {collection: 'cs5610.project.user'});
+    }, {collection: 'easyRental.project.user'});
 
     return UserSchema;
 };

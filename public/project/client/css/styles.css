@@ -95,24 +95,26 @@
 
 /* Branding */
 .navbar-brand {
-    color: #4B178F;
+    color: #ffffff;
     font-family: 'Poiret One', cursive;
     font-size: 1.9em;
     font-weight: 900;
+    padding-left: 50px;
 }
 
 /* App Navigation */
 .navigation {
-    background-color: #ffffff;
+    background-color: #111617;
+    background: linear-gradient(#ffffff, #111111);
     height: 70px;
     padding-top: 10px;
     z-index: 100;
-    box-shadow: 0 1px 0 #eeeeee;
+    box-shadow: 0 1px 0 #111617;
     /*F6F7F7*/
 }
 
 .nav-link {
-    color: #4B178F;
+    color: black;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     font-size: 0.9em;
@@ -125,7 +127,7 @@
 
 .navbar-nav > .active > a {
     color: #6720C4;
-    background-color: #eeeeee;
+    background-color: #E1E8EB;
 }
 
 /* Footer */
@@ -332,7 +334,10 @@
 .main {
     margin-top: 70px;
     padding-bottom: 70px;
-    background-color: #fafafa;
+
+    background: linear-gradient(grey, #ffffff);
+
+
 }
 
 /* Home page */
@@ -369,7 +374,7 @@
 
 .panel-heading {
     /*background-color: #F03B55;*/
-    background-color: #f7f7f7;
+    background-color: #555555;
 }
 
 .panel-heading h4 {
@@ -855,4 +860,250 @@
         width: 250px;
         height: 150px;
     }
+}
+
+
+#locate{
+
+    text-align: center;
+    border-style: dotted;
+    color: #ffffff;
+}
+
+
+
+.animate-enter, 
+.animate-leave { 
+    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
+    display: block;
+} 
+ 
+.animate-leave.animate-leave-active,
+.animate-enter {
+    -webkit-transform: rotateX(90deg) rotateZ(90deg);
+    -moz-transform: rotateX(90deg) rotateZ(90deg);
+    -ms-transform: rotateX(90deg) rotateZ(90deg);
+    -o-transform: rotateX(90deg) rotateZ(90deg);
+    transform: rotateX(90deg) rotateZ(90deg);
+    opacity: 0;
+    height: 0px;
+}        
+ 
+.animate-enter.animate-enter-active,
+.animate-leave {
+    -webkit-transform: rotateX(0deg) rotateZ(0deg);
+    -moz-transform: rotateX(0deg) rotateZ(0deg);
+    -ms-transform: rotateX(0deg) rotateZ(0deg);
+    -o-transform: rotateX(0deg) rotateZ(0deg);
+    transform: rotateX(0deg) rotateZ(0deg);
+    opacity: 1;
+    height: 30px;
+}
+
+.mainContent{
+    width: 80%;
+    height: 70%;
+    margin: 1%;
+    margin-left: 0%;
+    display: block;
+    float:left;
+    overflow: scroll;
+    background-color: lightgray;
+    background:-webkit-linear-gradient(bottom, #474B4E 10%, #A0A9B2 50%, #DCE2E8 100%);
+    background:-o-linear-gradient(bottom, #474B4E 10%, #A0A9B2 50%, #DCE2E8 100%);
+    background:-moz-linear-gradient(bottom, #474B4E 10%, #A0A9B2 50%, #DCE2E8 100%);    
+}
+
+.content-heading{
+    font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+    color: #3F4242;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/*=== slider style components ===*/
+ul{
+    list-style: none outside none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.slider-wrapper{
+    margin: 10px;
+    margin-bottom: 30px;
+
+}
+
+.slider-wrapper-main{
+    margin: 30px;
+    height: 500px;
+
+}
+
+.content-slider li{
+    background-color: black;
+    text-align: center;
+    color: #FFF;
+
+}
+
+.content-slider h3 {
+    margin: 20px;
+    padding: 70px 0;
+}
+
+#locations{
+
+    text-align: center;
+}
+
+
+  
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+
+
+
+
+.effectfront {
+  border: none;
+  margin: 0 auto;
+}
+
+.effectfront:hover {
+  -webkit-transform: scale(6);
+  -moz-transform: scale(6);
+  -o-transform: scale(6);
+  transform: scale(6);
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+
+  
+  @-webkit-keyframes spinnerRotate
+{
+    from{-webkit-transform:rotate(0deg);}
+    to{-webkit-transform:rotate(360deg);}
+}
+@-moz-keyframes spinnerRotate
+{
+    from{-moz-transform:rotate(0deg);}
+    to{-moz-transform:rotate(360deg);}
+}
+@-ms-keyframes spinnerRotate
+{
+    from{-ms-transform:rotate(0deg);}
+    to{-ms-transform:rotate(360deg);}
+}
+#spin{
+    position:fixed;
+    
+    -webkit-animation-name: spinnerRotate;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spinnerRotate;
+    -moz-animation-duration: 5s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spinnerRotate;
+    -ms-animation-duration: 5s;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+}
+
+#houseIcon{
+  height:40px;
+  width: 40px;
+}
+
+#searchListing{
+ background-image: url("../img/living.jpg");
+
+}
+
+#zip{
+
+    color: red;
+}
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+input.ng-pristine + ul#strength {
+    display:none;
+}
+ul#strength {
+    display:inline;
+    list-style:none;
+    margin:0;
+    margin-left:15px;
+    padding:0;
+    vertical-align:2px;
+}
+.point:last {
+    margin:0 !important;
+}
+.point {
+    background:#DDD;
+    border-radius:2px;
+    display:inline-block;
+    height:5px;
+    margin-right:1px;
+    width:20px;
+}
+
+.strong   { color: #060; border-color: #0F0;}
+.medium   { color: #C60; border-color: #FC0;}
+.weak     { color: #900; border-color: #F00;}
+.strength { padding: 1px 10px; border: 2px solid; color: #FFF;}
+
+
+a {
+    position: relative;
+}
+
+.popover {
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    display: block;
+    padding: 0 20px;
+}
+
+.popover span {
+    display: block;
+    font-weight: 700;
 }
