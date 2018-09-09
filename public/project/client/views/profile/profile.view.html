@@ -8,7 +8,7 @@
             <span>Your profile has been updated!</span>
         </div>
         <div class="form-holder">
-            <form action="">
+            <form action="" name="passwordForm">
                 <div class="form-group">
                     <label for="firstName">First Name</label>
                     <input ng-model="user.firstname" type="text" class="form-control" id="firstName"
@@ -25,14 +25,18 @@
                 </div>
                 <div class="form-group">
                     <label for="userame">Username</label>
-                    <input ng-model="user.username" type="text" class="form-control" id="userame" placeholder="Smith"/>
+                    <input ng-model="user.username" type="text" class="form-control" id="userame" placeholder="Darky"/>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword">Password</label>
-                    <input ng-model="user.password" type="password" class="form-control" id="inputPassword" placeholder="Choose password"/>
+                    <input ng-model="user.password" type="password" class="form-control" id="inputPassword" placeholder="Choose password"  />
+
+                
+                
                 </div>
                 <a class="btn btn-custom" ng-click="update(user)" role="button">Update</a>
             </form>
+
         </div>
     </div>
 </div>

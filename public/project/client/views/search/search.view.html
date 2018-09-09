@@ -1,4 +1,4 @@
-<div class="main page-offset">
+<div class="main page-offset" id= "searchListing">
     <div class="row clearfix no-margin">
         <div class="search-container col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-2">
             <h3>Search Listings</h3>
@@ -7,11 +7,13 @@
                 <div class="form-group form-group-lg">
                     <div class="col-xs-10 search-form-input">
                         <input class="form-control search-box" type="text" id="search" ng-model="searchTerm"
-                               ng-change="checkSearchTerm()" placeholder="Enter a zipcode, neighbourhood or city" ng-enter="search()">
+                               ng-change="checkSearchTerm()" placeholder="Enter a zipcode, neighbourhood or city" ng-enter="search()" required>
+                                <span id="zip" ng-bind="field"></span><br/>
                     </div>
                     <a class="btn btn-custom col-xs-2 search-button" ng-click="search()"><span
                             class="glyphicon glyphicon-search"
                             aria-hidden="true"></span></a>
+                         
                 </div>
             </form>
         </div>

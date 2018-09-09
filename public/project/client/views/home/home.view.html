@@ -7,9 +7,10 @@
                 <div class="form-group form-group-lg">
                     <div class="col-xs-10 search-form-input">
                         <input class="form-control search-box" type="text" id="search" ng-enter="DoWork()" ng-model="MyText"
-                               placeholder="Enter a zipcode, neighbourhood or city" >
+                               placeholder="Enter a zipcode, neighbourhood or city" required>
+                        <span ng-bind="field" id="zip"></span><br/>
                     </div>
-                    <a href="#/search" class="btn btn-custom col-xs-2 search-button"><span
+                    <a class="btn btn-custom col-xs-2 search-button" ng-click="DoWork()"><span
                             class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
                 </div>
             </form>
@@ -17,14 +18,13 @@
     </div>
 
 
-  
 
     <div class="hero col-sm-10 col-centered clearfix">
-        <h3 class="hero-title">How It Works</h3>
-
+        <h3 class="hero-title" id="locate"><button ng-click="toggle()" class="btn btn-custom" tooltip-html-unsafe="How it works" tooltip-placement="bottom">How It Works</button> <button ng-click="toggleLocation()" class="btn btn-custom">Locations</button> <button ng-click="toggleGallery()" class="btn btn-custom">Gallery</button></h3>
+     <div ng-animate="{show: 'slide-down', hide: 'slide-up'}" ng-show="show">
         <div class="col-sm-6 hero-panel">
             <div class="panel panel-custom">
-                <div class="panel-heading"><h4>Home Owners</h4></div>
+                <div class="panel-heading" ><h4>Home Owners</h4></div>
                 <div class="panel-body">
                     <p>Students Rental is an house/property rental platform which focuses on providing reliable data to home seekers prioritizing students.Our mission is to ensure that the region’s low- and moderate-income international students have choice and mobility in finding and renting decent affordable housing. </p>
                 </div>
@@ -38,5 +38,94 @@
                 </div>
             </div>
         </div>
+           </div>
     </div>
+
+ <div id="locations">
+ 
+    <div ng-init="names=['Boston', 'New York', 'Davis', 'Cambridge', 'New Hampshire', 'Seatle', 'Washington DC', 'San Diego', 'Saint Louis', 'Quincy '];" ng-animate="{show: 'slide-down', hide: 'slide-up'}" ng-show="locate">
+            <h3 class="hero-title" ><button class="btn btn-custom">Search Locations:</button></h3>
+            <div class="col-lg-offset-4">
+  <div class="well animate" style="margin-top: 30px; width: 400px; overflow: hidden;">
+    <form class="form-search"> 
+        <div class="input-append">
+          <input type="text" ng-model="search" class="search-query" style="width: 120px">
+          
+        <ul class="nav nav-pills nav-stacked">
+          <li ng-animate="'animate'" ng-repeat="name in names | filter:search">
+            <a href="#/home"> {{name}} </a>
+          </li> 
+      </ul>
+    </form>
+  </div>
+ </div> 
 </div>
+    </div>
+
+
+                  
+<div  ng-animate="{show: 'slide-down', hide: 'slide-up'}" ng-show="gallery">
+      <h3 class="hero-title" ><button class="btn btn-custom">Gallery</button></h3>
+        <p id="list-margin">
+            <a href="#/home" rel="prettyPhoto[pp_gal]" title="Awesome Arizona!"><img class="effectfront" src="img/homeLast.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront"src="img/kitchen.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img class="effectfront" src="img/living.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room.jpg" width="60" height="60" alt="longwood!" /></a>
+            
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room_1.jpg" width="60" height="60" alt="longwood!" /></a>
+           
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room_2.jpg" width="60" height="60" alt="longwood!" /></a>
+         
+             <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room_3.jpg" width="60" height="60" alt="longwood!" /></a>
+              <a href="#/home" rel="prettyPhoto[pp_gal]" title="Awesome Arizona!"><img class="effectfront" src="img/homeLast.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront"src="img/kitchen.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img class="effectfront" src="img/living.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room.jpg" width="60" height="60" alt="longwood!" /></a>
+            
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room_1.jpg" width="60" height="60" alt="longwood!" /></a>
+           
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room_2.jpg" width="60" height="60" alt="longwood!" /></a>
+         
+             <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room_3.jpg" width="60" height="60" alt="longwood!" /></a>
+             <br>
+             <br>
+
+           <a href="#/home" rel="prettyPhoto[pp_gal]" title="Awesome Arizona!"><img class="effectfront" src="img/homeLast.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront"src="img/kitchen.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img class="effectfront" src="img/living.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room.jpg" width="60" height="60" alt="longwood!" /></a>
+            
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room_1.jpg" width="60" height="60" alt="longwood!" /></a>
+           
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room_2.jpg" width="60" height="60" alt="longwood!" /></a>
+         
+             <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room_3.jpg" width="60" height="60" alt="longwood!" /></a>
+
+          <a href="#/home" rel="prettyPhoto[pp_gal]" title="Awesome Arizona!"><img class="effectfront" src="img/homeLast.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront"src="img/kitchen.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img class="effectfront" src="img/living.jpg" width="60" height="60" alt="longwood!" /></a>
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room.jpg" width="60" height="60" alt="longwood!" /></a>
+            
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room_1.jpg" width="60" height="60" alt="longwood!" /></a>
+           
+            <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room_2.jpg" width="60" height="60" alt="longwood!" /></a>
+         
+             <a href="#/home" rel="prettyPhoto[pp_gal]"><img  class="effectfront" src="img/living_room_3.jpg" width="60" height="60" alt="longwood!" /></a>
+
+
+            </p>
+
+
+
+
+            
+
+
+<div>
+
+
+
+</div>
+
+
+ 

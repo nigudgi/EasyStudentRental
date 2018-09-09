@@ -31,3 +31,55 @@ app.directive('ngEnter', function () {
         });
     };
 });
+
+
+app.directive('slide-down', function($rootScope) {
+  return {
+    setup: function(element) {
+      $(element).css({display: 'none'});
+    },
+    start: function(element, done, memo) {
+      console.log('animationStart (slide-down)', arguments);
+      $(element).slideDown(done);
+    }
+  };
+});
+
+
+
+app.directive('slide-up', function($rootScope) {
+  return {
+    setup: function(element) {
+      //$(element).css({display: 'none'});
+    },
+    start: function(element, done, memo) {
+      console.log('animationStart (slide-up)', arguments);
+      $(element).slideUp(done);
+    }
+  };
+
+});
+
+
+
+
+app.directive("passwordStrength", function(){
+    return {        
+        restrict: 'A',
+        link: function(scope, element, attrs){    
+        debugger;                
+            scope.$watch(attrs.passwordStrength, function(value) {
+                console.log(value);
+                if(angular.isDefined(value)){
+                    if (value.length > 8) {
+                        scope.strength = 'strong';
+                    } else if (value.length > 3) {
+                        scope.strength = 'medium';
+                    } else {
+                        scope.strength = 'weak';
+                    }
+                }
+            });
+        }
+    };
+});

@@ -26,11 +26,11 @@
                 });
 
             var pinned = $rootScope.currentUser.pinned;
-             debugger;
+          
             for (var i=0; i<pinned.length; i++) {
                 ListingService.FindById(pinned[i])
                     .then(function (listing) {
-                        debugger;
+                   
                         if (listing) {
                             $scope.pinned.push(listing);
                         }
